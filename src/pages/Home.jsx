@@ -1,7 +1,7 @@
 
-import Footer from "../components/common/Footer";
+
 import AboutPreview from "../components/home/AboutPreview";
-import CallToAction from "../components/home/CalltoAction";
+import CallToAction from "../components/home/CallToAction";
 import DestinationSection from "../components/home/DestinationSection";
 import FeaturedPackages from "../components/home/FeaturedPackages";
 import Hero from "../components/home/Hero";
