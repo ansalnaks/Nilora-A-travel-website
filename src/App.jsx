@@ -5,6 +5,8 @@ import Navbar from './components/common/Navbar'
 import Destinations from './pages/Destinations'
 import DestinationDetails from './components/destinations/DestinationDetails'
 import Packages from './pages/Packages'
+import PackageDetails from './pages/PackageDetails'
+import About from './pages/About'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path='/destinations' element={<Destinations/>}></Route>
       <Route path='/destinations/:id' element={<DestinationDetails/>}></Route>
       <Route path='/packages' element={<Packages/>}></Route>
+      <Route path='/packages/:id' element={<PackageDetails/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
     </Routes>
     </>
   )

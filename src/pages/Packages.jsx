@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import PackageHero from "../components/packages/PackageHero";
 import PackageFilters from "../components/packages/PackageFilters";
+import PackageGrid from "../components/packages/PackageGrid";
 
 import packages from "../data/packages";
 
@@ -12,12 +13,10 @@ const Packages = () => {
   const [selectedDuration, setSelectedDuration] = useState("All Durations");
 
   const filteredPackages = packages.filter((item) => {
-    // Search filter
     const matchesSearch =
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.location.toLowerCase().includes(searchTerm.toLowerCase());
 
-    // Budget filter
     const matchesBudget =
       selectedBudget === "All Budgets" ||
       (selectedBudget === "under-50000" && item.price < 50000) ||
@@ -26,7 +25,6 @@ const Packages = () => {
         item.price <= 75000) ||
       (selectedBudget === "above-75000" && item.price > 75000);
 
-    // Duration filter
     const days = parseInt(item.duration, 10);
 
     const matchesDuration =
@@ -62,6 +60,8 @@ const Packages = () => {
           </p>
         </div>
       </div>
+
+      <PackageGrid packages={filteredPackages} />
     </main>
   );
 };
