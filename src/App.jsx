@@ -7,10 +7,16 @@ import DestinationDetails from './components/destinations/DestinationDetails'
 import Packages from './pages/Packages'
 import PackageDetails from './pages/PackageDetails'
 import About from './pages/About'
+import Contact from './pages/Contact'
+import ScrollToTop from './components/common/ScrollTop'
+import Footer from './components/common/Footer'
+import WhatsAppButton from './components/common/WhatsAppButton'
 
 function App() {
   return (
     <>
+
+    <ScrollToTop/>
     <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
@@ -19,7 +25,10 @@ function App() {
       <Route path='/packages' element={<Packages/>}></Route>
       <Route path='/packages/:id' element={<PackageDetails/>}></Route>
       <Route path='/about' element={<About/>}></Route>
+      <Route path='/contact' element={<Contact/>}></Route>
     </Routes>
+    <Footer/>
+    <WhatsAppButton/>
     </>
   )
 }
