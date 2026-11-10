@@ -18,3 +18,113 @@ body {
   color: #263238;
 }
 
+
+/* NILORA - Unique Curved Flight Animation */
+
+.nilora-flight-scene {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  height: 85px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Curved golden flight trail */
+.nilora-flight-trail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -5px;
+  left: 0;
+  opacity: 0.5;
+  background: none;
+}
+
+.nilora-flight-trail::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 65px;
+  top: 8px;
+  left: 0;
+  border-bottom: 1px dashed #c9a45c;
+  border-radius: 0 0 50% 50%;
+  transform: rotate(-7deg);
+  opacity: 0.5;
+}
+
+/* Airplane */
+.nilora-aircraft {
+  position: absolute;
+  top: 35px;
+  left: 10%;
+  color: #c9a45c;
+  font-size: 21px;
+  filter: drop-shadow(0 2px 3px #c9a45c55);
+  animation: nilora-journey 9s ease-in-out infinite;
+}
+
+/* Take-off, banking turn and landing-style curve */
+@keyframes nilora-journey {
+  0% {
+    transform: translate(0, 25px) rotate(-15deg) scale(0.8);
+    opacity: 0;
+  }
+
+  12% {
+    transform: translate(5vw, 5px) rotate(-25deg) scale(1);
+    opacity: 1;
+  }
+
+  28% {
+    transform: translate(15vw, -12px) rotate(-10deg);
+  }
+
+  42% {
+    transform: translate(25vw, 8px) rotate(15deg);
+  }
+
+  55% {
+    transform: translate(34vw, -18px) rotate(-20deg);
+  }
+
+  70% {
+    transform: translate(42vw, -5px) rotate(5deg);
+  }
+
+  85% {
+    transform: translate(49vw, 15px) rotate(20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(55vw, -10px) rotate(-10deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nilora-flight-scene {
+    width: 55%;
+    height: 65px;
+    opacity: 0.65;
+  }
+
+  .nilora-aircraft {
+    font-size: 15px;
+  }
+
+  .nilora-flight-trail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nilora-aircraft {
+    animation: none;
+    display: none;
+  }
+}
